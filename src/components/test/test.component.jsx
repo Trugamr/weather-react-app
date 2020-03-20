@@ -12,6 +12,7 @@ import {
 import { TestComponentContainer } from './test.styles'
 
 import TestThemePicker from '../test-theme-picker/test-theme-picker.component'
+import WeatherIcon from '../weather-icon/weather-icon.component'
 
 const TestComponent = ({ getWeatherStart, currentWeather, weatherError }) => {
   const [query, setQuery] = useState('Chandigarh')
@@ -26,12 +27,17 @@ const TestComponent = ({ getWeatherStart, currentWeather, weatherError }) => {
     getWeatherStart(query)
   }
 
-  const { placeName, forecast } = currentWeather
+  const {
+    placeName,
+    forecast,
+    currently: { icon } = { icon: 'clear-day' }
+  } = currentWeather
 
   return (
     <TestComponentContainer theme={theme}>
+      <WeatherIcon iconName={icon} />
       <h1>{placeName || 'Place'}</h1>
-      <h4>{forecast || 'Complete Forecase'}</h4>
+      <h4>{forecast || 'Complete Forecast'}</h4>
       <form onSubmit={handleSubmit}>
         <input
           type="text"

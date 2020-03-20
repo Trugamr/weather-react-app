@@ -84,15 +84,15 @@ export const partlyCloudyNight = {
 }
 
 //--DEFAULT EXPORT--//
-export default [
-  clearDay,
-  clearNight,
+export default {
+  'clear-day': clearDay,
+  'clear-night': clearNight,
   rain,
   sleet,
   wind,
   fog,
   snow,
   cloudy,
-  partlyCloudyDay,
-  partlyCloudyNight
-]
+  'partly-cloudy-day': partlyCloudyDay,
+  'partly-cloudy-night': partlyCloudyNight
+}

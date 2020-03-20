@@ -1,9 +1,9 @@
-import { clearDay } from './themes.data'
+import themes from './themes.data'
 
 import ThemeActionTypes from './theme.types'
 
 const INITIAL_STATE = {
-  currentTheme: clearDay
+  currentTheme: themes['clear-day']
 }
 
 const themeReducer = (state = INITIAL_STATE, action) => {
@@ -11,7 +11,7 @@ const themeReducer = (state = INITIAL_STATE, action) => {
     case ThemeActionTypes.SET_CURRENT_THEME:
       return {
         ...state,
-        currentTheme: action.payload
+        currentTheme: themes[action.payload] || themes['clear-day']
       }
     default:
       return state

@@ -8,13 +8,15 @@ import { ThemePickerContainer } from './test-theme-picker.styles'
 import { setCurrentTheme } from '../../redux/theme/theme.actions'
 
 export const TestThemePicker = ({ setCurrentTheme }) => {
-  console.log(themes)
   return (
     <ThemePickerContainer>
-      {themes.map((theme, index) => (
+      {Object.keys(themes).map((theme, index) => (
         <div
           key={index}
-          style={{ backgroundColor: theme.base, borderColor: theme.text }}
+          style={{
+            backgroundColor: themes[theme].base,
+            borderColor: themes[theme].text
+          }}
           onClick={() => setCurrentTheme(theme)}
         />
       ))}
