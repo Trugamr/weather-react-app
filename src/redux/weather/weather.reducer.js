@@ -1,19 +1,18 @@
 import WeatherActionTypes from './weather.types'
 
 const INITIAL_STATE = {
-  longitute: null,
-  latitude: null,
-  placeName: null,
-  forecast: null,
-  timezone: null,
-  currently: null,
-  hourly: null,
-  daily: null,
-  flags: null,
-  offset: null,
-  search: null,
-  error: null,
-  units: 'si'
+  longitute: undefined,
+  latitude: undefined,
+  placeName: undefined,
+  forecast: undefined,
+  timezone: undefined,
+  currently: undefined,
+  hourly: undefined,
+  daily: undefined,
+  flags: { units: 'si' },
+  offset: undefined,
+  search: undefined,
+  error: undefined
 }
 
 const weatherReducer = (state = INITIAL_STATE, action) => {
@@ -22,7 +21,7 @@ const weatherReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         ...action.payload,
-        error: null
+        error: undefined
       }
     case WeatherActionTypes.GET_WEATHER_FAILURE:
       return {
@@ -32,7 +31,7 @@ const weatherReducer = (state = INITIAL_STATE, action) => {
     case WeatherActionTypes.SET_WEATHER_UNITS:
       return {
         ...state,
-        units: action.payload
+        flags: { units: action.payload }
       }
     default:
       return state

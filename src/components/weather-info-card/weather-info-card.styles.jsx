@@ -1,21 +1,9 @@
 import styled, { css } from 'styled-components'
 
-const flexStart = css`
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-`
-
 const flexCenter = css`
   display: flex;
   justify-content: center;
   align-items: center;
-`
-
-const flexEnd = css`
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
 `
 
 export const WeatherInfoCardContainer = styled.div`

@@ -24,7 +24,8 @@ export const selectForecast = createSelector(
 
 export const selectUnits = createSelector(
   [selectWeather],
-  weather => weather.units
+  // on weather request object not local
+  weather => weather.flags.units
 )
 
 export const selectLastSearch = createSelector(

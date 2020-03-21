@@ -17,7 +17,7 @@ export const TopContainer = styled.div`
 
 export const ArchContainer = styled.div``
 
-export const MiddleContainer = styled.div`
+export const BriefDetailsContainer = styled.div`
   background-color: ${({ theme }) => theme.arch};
 `
 
