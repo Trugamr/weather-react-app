@@ -8,11 +8,13 @@ export const TestComponentContainer = styled.div`
   flex-direction: column;
   color: ${({ theme }) => theme.text};
   box-shadow: 8px 8px 0px 0px rgba(0, 0, 0, 0.2);
+  font-family: 'Montserrat', 'sans-serif';
 
   h1,
   h4 {
     padding: 0px;
     margin: 0px;
+    font-weight: 300;
   }
 
   h4 {

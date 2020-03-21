@@ -2,6 +2,7 @@ import React from 'react'
 
 import SideMenuIcon from '../side-menu-icon/side-menu-icon.component'
 import SearchField from '../search-field/search-field.component'
+import SwitchUnits from '../switch-units/switch-units.component'
 
 import {
   HeaderContainer,
@@ -21,7 +22,9 @@ const Header = () => {
         <SearchField searchValue="Chandigarh" />
       </SearchFieldContainer>
 
-      <TempSwitchContainer />
+      <TempSwitchContainer>
+        <SwitchUnits fontSize={18} />
+      </TempSwitchContainer>
     </HeaderContainer>
   )
 }

@@ -2,12 +2,14 @@ import React from 'react'
 import { useTheme } from 'styled-components'
 
 import Header from '../../components/header/header.component'
+import ArcRangeSlider from '../../components/arc-range-slider/arc-range-slider.component'
 
 import {
   WeatherPageContainer,
   TopContainer,
   MiddleContainer,
-  BottomContainer
+  BottomContainer,
+  ArchContainer
 } from './weather.styles'
 
 const WeatherPage = () => {
@@ -18,6 +20,9 @@ const WeatherPage = () => {
       <TopContainer>
         <Header />
       </TopContainer>
+      <ArchContainer>
+        <ArcRangeSlider />
+      </ArchContainer>
       <MiddleContainer></MiddleContainer>
       <BottomContainer></BottomContainer>
     </WeatherPageContainer>

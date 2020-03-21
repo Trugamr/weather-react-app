@@ -12,7 +12,8 @@ const INITIAL_STATE = {
   flags: null,
   offset: null,
   search: null,
-  error: null
+  error: null,
+  units: 'si'
 }
 
 const weatherReducer = (state = INITIAL_STATE, action) => {
@@ -27,6 +28,11 @@ const weatherReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         error: action.payload
+      }
+    case WeatherActionTypes.SET_WEATHER_UNITS:
+      return {
+        ...state,
+        units: action.payload
       }
     default:
       return state

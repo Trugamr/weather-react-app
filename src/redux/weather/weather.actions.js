@@ -14,3 +14,8 @@ export const getWeatherFailure = error => ({
   type: WeatherActionTypes.GET_WEATHER_FAILURE,
   payload: error
 })
+
+export const setWeatherUnits = units => ({
+  type: WeatherActionTypes.SET_WEATHER_UNITS,
+  payload: units
+})

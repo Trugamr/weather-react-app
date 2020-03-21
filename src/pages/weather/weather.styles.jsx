@@ -5,12 +5,17 @@ export const WeatherPageContainer = styled.div`
   height: 100%;
   background-color: ${({ theme }) => theme.base};
   display: grid;
-  grid-template-rows: minmax(150px, 25%) minmax(300px, 50%) minmax(150px, 25%);
+  grid-template-rows: minmax(150px, 25%) minmax(100px, 15%) minmax(200px, 35%) minmax(
+      150px,
+      25%
+    );
 `
 
 export const TopContainer = styled.div`
   background-color: transparent;
 `
+
+export const ArchContainer = styled.div``
 
 export const MiddleContainer = styled.div`
   background-color: ${({ theme }) => theme.arch};

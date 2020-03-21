@@ -21,3 +21,13 @@ export const selectForecast = createSelector(
   [selectWeather],
   weather => weather.forecast
 )
+
+export const selectUnits = createSelector(
+  [selectWeather],
+  weather => weather.units
+)
+
+export const selectLastSearch = createSelector(
+  [selectWeather],
+  weather => weather.search
+)
