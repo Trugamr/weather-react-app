@@ -1,19 +1,22 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
+import { PersistGate } from 'redux-persist/integration/react'
 import CustomThemeProvider from './components/custom-theme-provider/custom-theme-provider'
 
 import './index.scss'
 import App from './App'
 import * as serviceWorker from './serviceWorker'
 
-import store from './redux/store'
+import { store, persistor } from './redux/store'
 
 ReactDOM.render(
   <Provider store={store}>
-    <CustomThemeProvider>
-      <App />
-    </CustomThemeProvider>
+    <PersistGate persistor={persistor}>
+      <CustomThemeProvider>
+        <App />
+      </CustomThemeProvider>
+    </PersistGate>
   </Provider>,
   document.getElementById('root')
 )

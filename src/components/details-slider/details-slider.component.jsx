@@ -15,7 +15,7 @@ const DetailsSlider = () => {
   const [activeIndex, setActiveIndex] = useState(1)
   const theme = useTheme()
 
-  let staticActiveIndex = 0
+  let staticActiveIndex = 1
 
   const handleNext = () => {
     setActiveIndex(staticActiveIndex > 2 ? 0 : staticActiveIndex + 1)
