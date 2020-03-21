@@ -6,6 +6,8 @@ import { useTheme } from 'styled-components'
 import { getWeatherStart } from '../../redux/weather/weather.actions'
 import {
   selectCurrentWeather,
+  selectPlaceName,
+  selectForecast,
   selectWeatherError
 } from '../../redux/weather/weather.selectors'
 
@@ -14,7 +16,13 @@ import { TestComponentContainer } from './test.styles'
 import TestThemePicker from '../test-theme-picker/test-theme-picker.component'
 import WeatherIcon from '../weather-icon/weather-icon.component'
 
-const TestComponent = ({ getWeatherStart, currentWeather, weatherError }) => {
+const TestComponent = ({
+  getWeatherStart,
+  currentWeather,
+  placeName,
+  forecast,
+  weatherError
+}) => {
   const [query, setQuery] = useState('Chandigarh')
   const theme = useTheme()
 
@@ -27,11 +35,7 @@ const TestComponent = ({ getWeatherStart, currentWeather, weatherError }) => {
     getWeatherStart(query)
   }
 
-  const {
-    placeName,
-    forecast,
-    currently: { icon } = { icon: 'clear-day' }
-  } = currentWeather
+  const icon = currentWeather ? currentWeather.icon : 'clear-day'
 
   return (
     <TestComponentContainer theme={theme}>
@@ -57,6 +61,8 @@ const TestComponent = ({ getWeatherStart, currentWeather, weatherError }) => {
 
 const mapStateToProps = createStructuredSelector({
   currentWeather: selectCurrentWeather,
+  placeName: selectPlaceName,
+  forecast: selectForecast,
   weatherError: selectWeatherError
 })
 

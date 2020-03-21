@@ -1,7 +1,17 @@
 import WeatherActionTypes from './weather.types'
 
 const INITIAL_STATE = {
-  currentWeather: {},
+  longitute: null,
+  latitude: null,
+  placeName: null,
+  forecast: null,
+  timezone: null,
+  currently: null,
+  hourly: null,
+  daily: null,
+  flags: null,
+  offset: null,
+  search: null,
   error: null
 }
 
@@ -10,7 +20,7 @@ const weatherReducer = (state = INITIAL_STATE, action) => {
     case WeatherActionTypes.GET_WEATHER_SUCCESS:
       return {
         ...state,
-        currentWeather: action.payload,
+        ...action.payload,
         error: null
       }
     case WeatherActionTypes.GET_WEATHER_FAILURE:
