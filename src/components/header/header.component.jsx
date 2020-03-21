@@ -1,5 +1,6 @@
 import React from 'react'
 
+import SideMenuIcon from '../side-menu-icon/side-menu-icon.component'
 import SearchField from '../search-field/search-field.component'
 
 import {
@@ -12,7 +13,9 @@ import {
 const Header = () => {
   return (
     <HeaderContainer>
-      <IconContainer />
+      <IconContainer>
+        <SideMenuIcon size={30} />
+      </IconContainer>
 
       <SearchFieldContainer>
         <SearchField searchValue="Chandigarh" />

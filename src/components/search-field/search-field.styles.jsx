@@ -18,6 +18,7 @@ export const SearchInput = styled.input`
   text-overflow: ellipsis;
   padding: 10px 10px;
   box-sizing: border-box;
+  margin: auto;
 
   :focus {
     outline: none;

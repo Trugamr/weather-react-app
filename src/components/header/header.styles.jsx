@@ -11,7 +11,9 @@ export const HeaderContainer = styled.div`
 export const IconContainer = styled.div`
   grid-column: 1 / span 1;
   grid-row: 1;
-  background-color: hotpink;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
 `
 export const SearchFieldContainer = styled.div`
   grid-column: 2 / span 2;
