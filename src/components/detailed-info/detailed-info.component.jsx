@@ -10,7 +10,6 @@ import {
   selectCurrentWeather,
   selectUnits
 } from '../../redux/weather/weather.selectors'
-import { DetailedInfoCardSubTitle } from '../detailed-info-card/detailed-info-card.styles'
 
 const DetailedInfo = ({
   units,
@@ -35,7 +34,7 @@ const DetailedInfo = ({
   return currentWeather ? (
     <DetailedInfoContainer>
       <DetailedInfoCard
-        title={`${precipProbability * 100}%`}
+        title={`${Number.parseFloat(precipProbability * 100).toFixed(1)}%`}
         subtitle="Chance of rain"
       />
       <DetailedInfoCard

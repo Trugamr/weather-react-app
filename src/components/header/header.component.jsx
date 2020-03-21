@@ -19,7 +19,7 @@ const Header = () => {
       </IconContainer>
 
       <SearchFieldContainer>
-        <SearchField searchValue="Chandigarh" />
+        <SearchField />
       </SearchFieldContainer>
 
       <TempSwitchContainer>
