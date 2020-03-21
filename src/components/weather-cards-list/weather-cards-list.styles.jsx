@@ -12,13 +12,7 @@ export const WeatherCardsListContainer = styled.div`
 
 export const WeatherCardsContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(8, minmax(70px, 1fr));
-  grid-gap: 20px;
-  flex: 1 0;
-
-  div {
-    width: 70px;
-    height: 125px;
-    background-color: red;
-  }
+  grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+  grid-column-gap: 20px;
+  width: 100%;
 `

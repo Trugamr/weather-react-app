@@ -37,3 +37,7 @@ export const selectCurrentSummary = createSelector(
   currentWeather =>
     currentWeather ? currentWeather.summary : 'Summary not available.'
 )
+
+export const selectDailyWeather = createSelector([selectWeather], weather =>
+  weather.daily ? weather.daily.data : null
+)

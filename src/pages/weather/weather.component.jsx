@@ -28,7 +28,7 @@ const WeatherPage = () => {
       <MiddleContainer></MiddleContainer>
       <BottomContainer>
         {/* <WeatherSummary /> */}
-        <WeatherCardsList />
+        {/* <WeatherCardsList /> */}
       </BottomContainer>
     </WeatherPageContainer>
   )
