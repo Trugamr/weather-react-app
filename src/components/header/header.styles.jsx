@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 
 export const HeaderContainer = styled.div`
   height: 100%;
@@ -11,16 +11,19 @@ export const HeaderContainer = styled.div`
 export const IconContainer = styled.div`
   grid-column: 1 / span 1;
   grid-row: 1;
-  background-color: red;
+  background-color: hotpink;
 `
 export const SearchFieldContainer = styled.div`
   grid-column: 2 / span 2;
   grid-row: 2 / span 2;
-  background-color: blue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
 `
 
 export const TempSwitchContainer = styled.div`
   grid-column: 4 / span 1;
   grid-row: 1;
-  background-color: yellow;
+  background-color: hotpink;
 `

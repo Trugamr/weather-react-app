@@ -1,5 +1,7 @@
 import React from 'react'
 
+import SearchField from '../search-field/search-field.component'
+
 import {
   HeaderContainer,
   IconContainer,
@@ -11,7 +13,11 @@ const Header = () => {
   return (
     <HeaderContainer>
       <IconContainer />
-      <SearchFieldContainer />
+
+      <SearchFieldContainer>
+        <SearchField searchValue="Chandigarh" />
+      </SearchFieldContainer>
+
       <TempSwitchContainer />
     </HeaderContainer>
   )
