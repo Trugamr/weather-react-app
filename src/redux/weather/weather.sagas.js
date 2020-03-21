@@ -1,7 +1,11 @@
 import { takeLatest, put, call, all, select } from 'redux-saga/effects'
 
 import WeatherActionTypes from './weather.types'
-import { getWeatherSuccess, getWeatherFailure } from './weather.actions'
+import {
+  getWeatherSuccess,
+  getWeatherFailure,
+  getWeatherStart
+} from './weather.actions'
 import { selectUnits, selectLastSearch } from './weather.selectors'
 
 function* getWeather({ payload }) {
@@ -26,7 +30,7 @@ function* getWeather({ payload }) {
 
 function* updateWeatherAfterUnitsChange() {
   const lastSearch = yield select(selectLastSearch)
-  if (lastSearch) yield call(getWeather, { payload: lastSearch })
+  if (lastSearch) yield put(getWeatherStart(lastSearch))
 }
 
 export function* onGetWeather() {

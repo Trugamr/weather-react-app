@@ -31,3 +31,9 @@ export const selectLastSearch = createSelector(
   [selectWeather],
   weather => weather.search
 )
+
+export const selectCurrentSummary = createSelector(
+  [selectCurrentWeather],
+  currentWeather =>
+    currentWeather ? currentWeather.summary : 'Summary not available.'
+)

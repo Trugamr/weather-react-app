@@ -3,6 +3,8 @@ import { useTheme } from 'styled-components'
 
 import Header from '../../components/header/header.component'
 import ArcRangeSlider from '../../components/arc-range-slider/arc-range-slider.component'
+import WeatherSummary from '../../components/weather-summary/weather-summary.component'
+import WeatherCardsList from '../../components/weather-cards-list/weather-cards-list.component'
 
 import {
   WeatherPageContainer,
@@ -24,7 +26,10 @@ const WeatherPage = () => {
         <ArcRangeSlider />
       </ArchContainer>
       <MiddleContainer></MiddleContainer>
-      <BottomContainer></BottomContainer>
+      <BottomContainer>
+        {/* <WeatherSummary /> */}
+        <WeatherCardsList />
+      </BottomContainer>
     </WeatherPageContainer>
   )
 }
