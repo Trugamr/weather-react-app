@@ -1,12 +1,12 @@
 import React from 'react'
 import './App.scss'
 
-import TestComponent from './components/test/test.component'
+import WeatherPage from './pages/weather/weather.component'
 
 function App() {
   return (
     <div className="App">
-      <TestComponent />
+      <WeatherPage />
     </div>
   )
 }
