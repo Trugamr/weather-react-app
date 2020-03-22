@@ -1,11 +1,15 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
+import { format, fromUnixTime, addHours } from 'date-fns'
+import { utcToZonedTime } from 'date-fns-tz'
 import { useTheme } from 'styled-components'
 
 import {
   selectCurrentWeather,
-  selectDailyWeather
+  selectDailyWeather,
+  selectTimezone,
+  selectHourlyWeather
 } from '../../redux/weather/weather.selectors'
 
 import {
@@ -41,7 +45,12 @@ const UpSVG = ({ theme }) => {
   )
 }
 
-const BriefDetails = ({ dailyWeather, currentWeather }) => {
+const BriefDetails = ({
+  dailyWeather,
+  currentWeather,
+  hourlyWeather,
+  timezone
+}) => {
   const theme = useTheme()
 
   const roundAndFix = (n, d) => {
@@ -49,9 +58,16 @@ const BriefDetails = ({ dailyWeather, currentWeather }) => {
     return Math.round(n * m) / m
   }
 
+  const formatTime = (time, hours = 0) =>
+    format(
+      utcToZonedTime(addHours(fromUnixTime(time), hours), timezone),
+      'E eo'
+    ).toUpperCase()
+
   return dailyWeather ? (
     <BriefDetailsContainer theme={theme}>
       <MinTempContainer>
+        <span>{formatTime(dailyWeather[0].time)}</span>
         <DownSVG theme={theme} />
         <p>{roundAndFix(dailyWeather[0].temperatureMin, 1)}º</p>
       </MinTempContainer>
@@ -61,6 +77,7 @@ const BriefDetails = ({ dailyWeather, currentWeather }) => {
       <MaxTempContainer>
         <UpSVG theme={theme} />
         <p>{roundAndFix(dailyWeather[0].temperatureMax, 1)}º</p>
+        <span>{formatTime(dailyWeather[2].time)}</span>
       </MaxTempContainer>
     </BriefDetailsContainer>
   ) : (
@@ -70,7 +87,9 @@ const BriefDetails = ({ dailyWeather, currentWeather }) => {
 
 const mapStateToProps = createStructuredSelector({
   dailyWeather: selectDailyWeather,
-  currentWeather: selectCurrentWeather
+  currentWeather: selectCurrentWeather,
+  hourlyWeather: selectHourlyWeather,
+  timezone: selectTimezone
 })
 
 export default connect(mapStateToProps)(BriefDetails)

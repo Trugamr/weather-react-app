@@ -42,3 +42,12 @@ export const selectCurrentSummary = createSelector(
 export const selectDailyWeather = createSelector([selectWeather], weather =>
   weather.daily ? weather.daily.data : null
 )
+
+export const selectHourlyWeather = createSelector([selectWeather], weather =>
+  weather.hourly ? weather.hourly.data : null
+)
+
+export const selectTimezone = createSelector(
+  [selectWeather],
+  weather => weather.timezone
+)

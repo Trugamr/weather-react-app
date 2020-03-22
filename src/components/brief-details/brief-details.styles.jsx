@@ -6,6 +6,14 @@ const flexCenter = css`
   align-items: center;
 `
 
+const timeStyles = css`
+  color: ${({ theme }) => theme.text};
+  align-self: flex-start;
+  font-size: 0.9rem;
+  font-weight: 400;
+  padding: 20px;
+`
+
 export const BriefDetailsContainer = styled.div`
   color: ${({ theme }) => theme.text};
   font-family: 'Montserrat', 'sans-serif';
@@ -27,6 +35,11 @@ export const MinTempContainer = styled.div`
   box-sizing: border-box;
   padding-right: 30px;
   margin-top: 40px;
+
+  span {
+    ${timeStyles}
+    margin-right: auto;
+  }
 `
 
 export const TempContainer = styled.div`
@@ -44,4 +57,10 @@ export const MaxTempContainer = styled.div`
   box-sizing: border-box;
   padding-left: 30px;
   margin-top: 40px;
+
+  span {
+    ${timeStyles}
+    justify-self: flex-end;
+    margin-left: auto;
+  }
 `
