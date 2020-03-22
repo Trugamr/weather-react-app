@@ -12,7 +12,8 @@ const INITIAL_STATE = {
   flags: { units: 'si' },
   offset: undefined,
   search: undefined,
-  error: undefined
+  error: undefined,
+  currentSliderTime: 0
 }
 
 const weatherReducer = (state = INITIAL_STATE, action) => {
@@ -21,6 +22,7 @@ const weatherReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         ...action.payload,
+        currentSliderTime: action.payload.currently.time,
         error: undefined
       }
     case WeatherActionTypes.GET_WEATHER_FAILURE:
@@ -32,6 +34,11 @@ const weatherReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         flags: { units: action.payload }
+      }
+    case WeatherActionTypes.SET_CURRENT_SLIDER_TIME:
+      return {
+        ...state,
+        currentSliderTime: action.payload
       }
     default:
       return state

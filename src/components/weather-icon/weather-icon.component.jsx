@@ -1,4 +1,14 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { createStructuredSelector } from 'reselect'
+
+import { format, fromUnixTime, addHours } from 'date-fns'
+import { utcToZonedTime } from 'date-fns-tz'
+
+import {
+  selectCurrentSliderTime,
+  selectTimezone
+} from '../../redux/weather/weather.selectors'
 
 import clearDay from '../../assets/weather-icons/clear-day.svg'
 import clearNight from '../../assets/weather-icons/clear-night.svg'
@@ -13,7 +23,13 @@ import wind from '../../assets/weather-icons/wind.svg'
 
 import { WeatherIconContainer, WeatherIconImage } from './weather-icon.styles'
 
-const WeatherIcon = ({ iconName, ...props }) => {
+const WeatherIcon = ({
+  iconName,
+  showCurrentSliderTime,
+  currentSliderTime,
+  timezone,
+  ...props
+}) => {
   const ICON_MAP = {
     'clear-day': clearDay,
     'clear-night': clearNight,
@@ -27,11 +43,27 @@ const WeatherIcon = ({ iconName, ...props }) => {
     'partly-cloudy-night': partlyCloudyNight
   }
 
+  const formatTime = (time, hours = 0) =>
+    format(
+      utcToZonedTime(addHours(fromUnixTime(time), hours), timezone),
+      'h:mm b'
+    ).toUpperCase()
+
   return (
     <WeatherIconContainer {...props}>
+      {showCurrentSliderTime ? (
+        <span>{formatTime(currentSliderTime)}</span>
+      ) : (
+        ''
+      )}
       <WeatherIconImage src={ICON_MAP[iconName] || cloudy} alt="weather-icon" />
     </WeatherIconContainer>
   )
 }
 
-export default WeatherIcon
+const mapStateToProps = createStructuredSelector({
+  currentSliderTime: selectCurrentSliderTime,
+  timezone: selectTimezone
+})
+
+export default connect(mapStateToProps)(WeatherIcon)

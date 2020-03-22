@@ -51,3 +51,8 @@ export const selectTimezone = createSelector(
   [selectWeather],
   weather => weather.timezone
 )
+
+export const selectCurrentSliderTime = createSelector(
+  [selectWeather],
+  weather => weather.currentSliderTime
+)

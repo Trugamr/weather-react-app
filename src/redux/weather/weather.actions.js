@@ -24,3 +24,8 @@ export const updateWeatherRangeProgress = progress => ({
   type: WeatherActionTypes.UPDATE_WEATHER_RANGE_PROGRESS,
   payload: progress
 })
+
+export const setCurrentSliderTime = time => ({
+  type: WeatherActionTypes.SET_CURRENT_SLIDER_TIME,
+  payload: time
+})

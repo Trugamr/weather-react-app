@@ -8,8 +8,7 @@ import { useTheme } from 'styled-components'
 import {
   selectCurrentWeather,
   selectDailyWeather,
-  selectTimezone,
-  selectHourlyWeather
+  selectTimezone
 } from '../../redux/weather/weather.selectors'
 
 import {
@@ -45,12 +44,7 @@ const UpSVG = ({ theme }) => {
   )
 }
 
-const BriefDetails = ({
-  dailyWeather,
-  currentWeather,
-  hourlyWeather,
-  timezone
-}) => {
+const BriefDetails = ({ dailyWeather, currentWeather, timezone }) => {
   const theme = useTheme()
 
   const roundAndFix = (n, d) => {
@@ -88,7 +82,6 @@ const BriefDetails = ({
 const mapStateToProps = createStructuredSelector({
   dailyWeather: selectDailyWeather,
   currentWeather: selectCurrentWeather,
-  hourlyWeather: selectHourlyWeather,
   timezone: selectTimezone
 })
 

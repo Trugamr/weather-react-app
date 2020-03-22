@@ -5,7 +5,16 @@ export const WeatherIconContainer = styled.div`
   height: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
+  color: ${({ theme }) => theme.text};
+  font-family: 'Montserrat', 'sans-serif';
+  position: relative;
+  span {
+    position: absolute;
+    right: -20px;
+    top: -20px;
+    font-size: 0.9rem;
+    font-weight: 300;
+  }
 `
 
 export const WeatherIconImage = styled.img`
