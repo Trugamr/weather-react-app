@@ -15,7 +15,9 @@ export const TopContainer = styled.div`
   background-color: transparent;
 `
 
-export const ArchContainer = styled.div``
+export const ArchContainer = styled.div`
+  z-index: 1;
+`
 
 export const BriefDetailsContainer = styled.div`
   background-color: ${({ theme }) => theme.arch};

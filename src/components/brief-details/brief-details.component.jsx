@@ -49,7 +49,7 @@ const BriefDetails = ({ dailyWeather, currentWeather }) => {
     return Math.round(n * m) / m
   }
 
-  return dailyWeather.length ? (
+  return dailyWeather ? (
     <BriefDetailsContainer theme={theme}>
       <MinTempContainer>
         <DownSVG theme={theme} />

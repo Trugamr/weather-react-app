@@ -41,7 +41,10 @@ const DetailedInfo = ({
         title={`${windSpeed} ${units === 'si' ? 'mps' : 'mph'}`}
         subtitle="Wind"
       />
-      <DetailedInfoCard title={`${humidity * 100}%`} subtitle="Humidity" />
+      <DetailedInfoCard
+        title={`${Number.parseFloat(humidity * 100).toFixed(1)}%`}
+        subtitle="Humidity"
+      />
       <DetailedInfoCard
         title={`${Number.parseFloat(visibility).toFixed(2)} ${
           units === 'si' ? 'km' : visibility > 1 ? 'miles' : 'mile'
