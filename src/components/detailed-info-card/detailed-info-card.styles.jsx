@@ -4,7 +4,7 @@ export const DetailedInfoCardContainer = styled.div`
   height: 100%;
   width: 150px;
   justify-self: center;
-  margin-right: 5%;
+  margin-right: 10%;
   display: grid;
   grid-template-rows: 60% 40%;
   text-align: center;
@@ -14,7 +14,7 @@ export const DetailedInfoCardContainer = styled.div`
 
 export const DetailedInfoCardTitle = styled.div`
   margin: auto;
-  font-size: 22px;
+  font-size: 21px;
 `
 
 export const DetailedInfoCardSubTitle = styled.div`

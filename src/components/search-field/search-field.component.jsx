@@ -31,6 +31,7 @@ const SearchField = ({ searchValue = '', getWeatherStart, placeName }) => {
         type="text"
         name="query"
         placeholder="Search"
+        spellCheck="false"
         value={query}
         onChange={handleChange}
         theme={theme}

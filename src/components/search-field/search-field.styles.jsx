@@ -19,13 +19,17 @@ export const SearchInput = styled.input`
   padding: 10px 10px;
   box-sizing: border-box;
   margin: auto;
-
+  user-select: contain;
+ 
   :focus {
     outline: none;
-    border: 1px solid ${({ theme }) => theme.text};
+    border: 1px solid transparent;
+    border-bottom: 1.2px solid ${({ theme }) => theme.text};
+
   }
 
   ::placeholder {
     color: ${({ theme }) => theme.text};
+    opacity: 0.8;
   }
 `
