@@ -75,12 +75,14 @@ class ArcRange extends React.Component {
     }
 
     window.addEventListener('resize', updateWeatherIconSize)
+    window.addEventListener('scroll', updateWeatherIconPosition)
 
     updateWeatherIconSize()
   }
 
   componentWillUnmount() {
     window.removeEventListener('resize')
+    window.removeEventListener('scroll')
   }
 
   render() {
