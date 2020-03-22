@@ -4,7 +4,7 @@ export const DetailedInfoCardContainer = styled.div`
   height: 100%;
   width: 150px;
   justify-self: center;
-  margin-right: 10%;
+  margin-right: 5%;
   display: grid;
   grid-template-rows: 60% 40%;
   text-align: center;
