@@ -19,7 +19,6 @@ export const SearchInput = styled.input`
   padding: 10px 10px;
   box-sizing: border-box;
   margin: auto;
-  user-select: contain;
  
   :focus {
     outline: none;
