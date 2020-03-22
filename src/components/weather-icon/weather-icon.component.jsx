@@ -13,7 +13,7 @@ import wind from '../../assets/weather-icons/wind.svg'
 
 import { WeatherIconContainer, WeatherIconImage } from './weather-icon.styles'
 
-const WeatherIcon = ({ iconName }) => {
+const WeatherIcon = ({ iconName, ...props }) => {
   const ICON_MAP = {
     'clear-day': clearDay,
     'clear-night': clearNight,
@@ -28,7 +28,7 @@ const WeatherIcon = ({ iconName }) => {
   }
 
   return (
-    <WeatherIconContainer>
+    <WeatherIconContainer {...props}>
       <WeatherIconImage src={ICON_MAP[iconName] || cloudy} alt="weather-icon" />
     </WeatherIconContainer>
   )

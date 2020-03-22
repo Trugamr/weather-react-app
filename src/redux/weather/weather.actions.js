@@ -19,3 +19,8 @@ export const setWeatherUnits = units => ({
   type: WeatherActionTypes.SET_WEATHER_UNITS,
   payload: units
 })
+
+export const updateWeatherRangeProgress = progress => ({
+  type: WeatherActionTypes.UPDATE_WEATHER_RANGE_PROGRESS,
+  payload: progress
+})
