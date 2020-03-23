@@ -110,10 +110,9 @@ class ArcRange extends React.Component {
 
   componentDidUpdate() {
     const { lowerBound } = this.props
-    console.log(lowerBound)
-    const seekTo = (41.55 + lowerBound * 331.5) / 415.5
-    console.log(seekTo)
-    console.log(this.draggable)
+    const minX = 41.55 + lowerBound * 331.5
+    const seekTo = minX / 415.5
+    this.draggable[0].applyBounds({ minX, maxX: 373.45 })
     if (this.timeline) this.timeline.seek(seekTo)
     this.updateWeatherIconPosition()
   }
