@@ -1,11 +1,19 @@
-import { takeLatest, put, call, all, select } from 'redux-saga/effects'
+import {
+  takeLatest,
+  put,
+  call,
+  all,
+  select,
+  throttle
+} from 'redux-saga/effects'
 
 import WeatherActionTypes from './weather.types'
 import {
   getWeatherSuccess,
   getWeatherFailure,
   getWeatherStart,
-  setCurrentSliderTime
+  setCurrentSliderTime,
+  setCurrentWeather
 } from './weather.actions'
 
 import {
@@ -13,8 +21,18 @@ import {
   selectLastSearch,
   selectCurrentWeather,
   selectDailyWeather,
-  selectCurrentSliderTime
+  selectHourlyWeather
 } from './weather.selectors'
+
+import { setCurrentTheme } from '../theme/theme.actions'
+
+const findClosestHourlyWeather = (time, hourlyWeather) => {
+  const closest = hourlyWeather.reduce((a, b) => {
+    return Math.abs(b.time - time) < Math.abs(a.time - time) ? b : a
+  })
+
+  return closest
+}
 
 function* getWeather({ payload }) {
   const BASE_URL = `https://tru-weather-api.herokuapp.com`
@@ -47,6 +65,36 @@ function* updateWeatherOnRange({ payload }) {
   const timeDiff = dailyWeather[2].time - currentWeather.time
   const time = currentWeather.time + timeDiff * payload
   yield put(setCurrentSliderTime(time))
+
+  const hourlyWeather = yield select(selectHourlyWeather)
+  const closestMatch = yield call(findClosestHourlyWeather, time, hourlyWeather)
+
+  const {
+    temperature,
+    summary,
+    icon,
+    humidity,
+    precipProbability,
+    windSpeed,
+    visibility,
+    uvIndex,
+    pressure
+  } = closestMatch
+
+  const valuesToUpdate = {
+    temperature,
+    summary,
+    icon,
+    humidity,
+    precipProbability,
+    windSpeed,
+    visibility,
+    uvIndex,
+    pressure
+  }
+
+  yield put(setCurrentWeather(valuesToUpdate))
+  yield put(setCurrentTheme(icon))
 }
 
 export function* onGetWeather() {
@@ -61,7 +109,8 @@ export function* onSetWeatherUnits() {
 }
 
 export function* onUpdateWeatherRangeProgress() {
-  yield takeLatest(
+  yield throttle(
+    200,
     WeatherActionTypes.UPDATE_WEATHER_RANGE_PROGRESS,
     updateWeatherOnRange
   )

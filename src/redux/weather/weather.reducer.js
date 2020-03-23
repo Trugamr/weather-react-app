@@ -40,6 +40,14 @@ const weatherReducer = (state = INITIAL_STATE, action) => {
         ...state,
         currentSliderTime: action.payload
       }
+    case WeatherActionTypes.SET_CURRENT_WEATHER:
+      return {
+        ...state,
+        currently: {
+          ...state.currently,
+          ...action.payload
+        }
+      }
     default:
       return state
   }

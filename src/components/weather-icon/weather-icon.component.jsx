@@ -7,7 +7,8 @@ import { utcToZonedTime } from 'date-fns-tz'
 
 import {
   selectCurrentSliderTime,
-  selectTimezone
+  selectTimezone,
+  selectCurrentWeatherIcon
 } from '../../redux/weather/weather.selectors'
 
 import clearDay from '../../assets/weather-icons/clear-day.svg'
@@ -28,6 +29,7 @@ const WeatherIcon = ({
   showCurrentSliderTime,
   currentSliderTime,
   timezone,
+  currentIcon,
   ...props
 }) => {
   const ICON_MAP = {
@@ -56,14 +58,18 @@ const WeatherIcon = ({
       ) : (
         ''
       )}
-      <WeatherIconImage src={ICON_MAP[iconName] || cloudy} alt="weather-icon" />
+      <WeatherIconImage
+        src={ICON_MAP[iconName] || ICON_MAP[currentIcon]}
+        alt="weather-icon"
+      />
     </WeatherIconContainer>
   )
 }
 
 const mapStateToProps = createStructuredSelector({
   currentSliderTime: selectCurrentSliderTime,
-  timezone: selectTimezone
+  timezone: selectTimezone,
+  currentIcon: selectCurrentWeatherIcon
 })
 
 export default connect(mapStateToProps)(WeatherIcon)

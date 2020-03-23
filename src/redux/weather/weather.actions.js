@@ -29,3 +29,8 @@ export const setCurrentSliderTime = time => ({
   type: WeatherActionTypes.SET_CURRENT_SLIDER_TIME,
   payload: time
 })
+
+export const setCurrentWeather = weather => ({
+  type: WeatherActionTypes.SET_CURRENT_WEATHER,
+  payload: weather
+})
