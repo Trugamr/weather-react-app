@@ -8,6 +8,7 @@ import { gsap, TweenMax, TimelineMax, Linear } from 'gsap'
 
 import { ArcRangeSliderContainer } from './arc-range-slider.styles'
 import WeatherIcon from '../weather-icon/weather-icon.component'
+import ArcBackground from './arc-background.component'
 
 import {
   selectTimezone,
@@ -76,8 +77,7 @@ class ArcRange extends React.Component {
       const scale = 415.5 - bounds.minX - (415.5 - bounds.maxX)
 
       updateWeatherRangeProgress(
-        Math.round(((this.x - bounds.minX) / scale + Number.EPSILON) * 100) /
-          100
+        Math.round(((this.x - this.minX) / scale + Number.EPSILON) * 100) / 100
       )
     }
 
@@ -138,7 +138,6 @@ class ArcRange extends React.Component {
   }
 
   render() {
-    const { currentWeather } = this.props
     return (
       <>
         <svg
@@ -174,7 +173,8 @@ const ArcSVG = () => {
 const ArcRangeSlider = () => {
   return (
     <ArcRangeSliderContainer>
-      <ArcSVG />
+      {/* <ArcSVG /> */}
+      <ArcBackground />
       <ConnectedArcRange />
     </ArcRangeSliderContainer>
   )

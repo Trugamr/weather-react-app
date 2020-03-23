@@ -11,7 +11,7 @@ import { selectLastSearch } from './redux/weather/weather.selectors'
 class App extends React.Component {
   componentDidMount() {
     const { lastSearch, getWeatherStart } = this.props
-    if (lastSearch) getWeatherStart(lastSearch)
+    // if (lastSearch) getWeatherStart(lastSearch)
   }
 
   render() {

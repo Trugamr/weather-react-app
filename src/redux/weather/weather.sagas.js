@@ -63,6 +63,7 @@ function* updateWeatherOnRange({ payload }) {
   const currentWeather = yield select(selectCurrentWeather)
   const dailyWeather = yield select(selectDailyWeather)
   const timeDiff = dailyWeather[2].time - currentWeather.time
+
   const time = currentWeather.time + timeDiff * payload
   yield put(setCurrentSliderTime(time))
 

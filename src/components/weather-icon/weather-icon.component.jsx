@@ -45,11 +45,8 @@ const WeatherIcon = ({
     'partly-cloudy-night': partlyCloudyNight
   }
 
-  const formatTime = (time, hours = 0) =>
-    format(
-      utcToZonedTime(addHours(fromUnixTime(time), hours), timezone),
-      'h:mm b'
-    ).toUpperCase()
+  const formatTime = time =>
+    format(utcToZonedTime(fromUnixTime(time), timezone), 'h:mm b').toUpperCase()
 
   return (
     <WeatherIconContainer {...props}>

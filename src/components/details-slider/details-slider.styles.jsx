@@ -17,6 +17,7 @@ export const SliderOverlay = styled.div`
   height: 100%;
   top: 0;
   left: 0;
-  box-shadow: inset 0px 0px 20px 20px ${({ theme }) => theme.bottomDetail};
+  /* box-shadow: inset 0px 0px 20px 20px ${({ theme }) =>
+    theme.bottomDetail}; */
   cursor: pointer;
 `
