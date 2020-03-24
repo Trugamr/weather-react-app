@@ -15,10 +15,8 @@ import {
 } from './weather.styles'
 
 const WeatherPage = () => {
-  const theme = useTheme()
-
   return (
-    <WeatherPageContainer theme={theme}>
+    <WeatherPageContainer>
       <TopContainer>
         <Header />
       </TopContainer>

@@ -1,5 +1,4 @@
 import React from 'react'
-import { useTheme } from 'styled-components'
 import { formatTime, roundAndFix } from '../../redux/utils'
 
 import WeatherIcon from '../weather-icon/weather-icon.component'
@@ -12,12 +11,11 @@ import {
 } from './weather-info-card.styles'
 
 const WeatherInfoCard = props => {
-  const theme = useTheme()
   const { temperatureHigh, temperatureLow, time, icon } = props
   const avgTemp = (temperatureHigh + temperatureLow) / 2
   const day = formatTime(time, { formatString: 'E' })
   return (
-    <WeatherInfoCardContainer theme={theme}>
+    <WeatherInfoCardContainer>
       <WeatherDayText>{day.toLowerCase()}</WeatherDayText>
 
       <WeatherIconContainer>

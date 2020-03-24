@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { createStructuredSelector } from 'reselect'
 import { connect } from 'react-redux'
-import { useTheme } from 'styled-components'
 
 import { getWeatherStart } from '../../redux/weather/weather.actions'
 import {
@@ -24,7 +23,6 @@ const TestComponent = ({
   weatherError
 }) => {
   const [query, setQuery] = useState('Chandigarh')
-  const theme = useTheme()
 
   const handleChange = event => {
     setQuery(event.target.value)
@@ -38,7 +36,7 @@ const TestComponent = ({
   const icon = currentWeather ? currentWeather.icon : 'clear-day'
 
   return (
-    <TestComponentContainer theme={theme}>
+    <TestComponentContainer>
       <WeatherIcon iconName={icon} />
       <h1>{placeName || 'Place'}</h1>
       <h4>{forecast || 'Complete Forecast'}</h4>

@@ -1,7 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
-import { useTheme } from 'styled-components'
 
 import { selectCurrentSummary } from '../../redux/weather/weather.selectors'
 
@@ -11,11 +10,9 @@ import {
 } from './weather-summary.styles'
 
 const WeatherSummary = ({ summary }) => {
-  const theme = useTheme()
-
   return (
     <WeatherSummaryContainer>
-      <SummaryContainer theme={theme}>{summary}</SummaryContainer>
+      <SummaryContainer>{summary}</SummaryContainer>
     </WeatherSummaryContainer>
   )
 }

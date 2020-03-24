@@ -1,5 +1,4 @@
 import React from 'react'
-import { useTheme } from 'styled-components'
 
 import {
   DetailedInfoCardContainer,
@@ -8,10 +7,8 @@ import {
 } from './detailed-info-card.styles'
 
 const DetailedInfoCard = ({ title, subtitle }) => {
-  const theme = useTheme()
-
   return (
-    <DetailedInfoCardContainer theme={theme}>
+    <DetailedInfoCardContainer>
       <DetailedInfoCardTitle>{title}</DetailedInfoCardTitle>
       <DetailedInfoCardSubTitle>{subtitle}</DetailedInfoCardSubTitle>
     </DetailedInfoCardContainer>

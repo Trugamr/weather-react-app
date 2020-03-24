@@ -47,7 +47,7 @@ const BriefDetails = ({ dailyWeather, currentWeather, timezone }) => {
   const theme = useTheme()
 
   return dailyWeather ? (
-    <BriefDetailsContainer theme={theme}>
+    <BriefDetailsContainer>
       <MinTempContainer>
         <span>
           {formatTime(dailyWeather[0].time, { timezone, formatString: 'E eo' })}
