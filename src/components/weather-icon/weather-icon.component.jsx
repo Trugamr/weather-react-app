@@ -2,8 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
 
-import { format, fromUnixTime, addHours } from 'date-fns'
-import { utcToZonedTime } from 'date-fns-tz'
+import { formatTime } from '../../redux/utils'
 
 import {
   selectCurrentSliderTime,
@@ -45,13 +44,12 @@ const WeatherIcon = ({
     'partly-cloudy-night': partlyCloudyNight
   }
 
-  const formatTime = time =>
-    format(utcToZonedTime(fromUnixTime(time), timezone), 'h:mm b').toUpperCase()
-
   return (
     <WeatherIconContainer {...props}>
       {showCurrentSliderTime ? (
-        <span>{formatTime(currentSliderTime)}</span>
+        <span>
+          {formatTime(currentSliderTime, { timezone, formatString: 'hh:mm b' })}
+        </span>
       ) : (
         ''
       )}
