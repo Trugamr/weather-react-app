@@ -20,6 +20,7 @@ import {
   selectUnits,
   selectLastSearch,
   selectCurrentWeather,
+  selectCurrentWeatherBak,
   selectDailyWeather,
   selectHourlyWeather
 } from './weather.selectors'
@@ -68,7 +69,13 @@ function* updateWeatherOnRange({ payload }) {
   yield put(setCurrentSliderTime(time))
 
   const hourlyWeather = yield select(selectHourlyWeather)
-  const closestMatch = yield call(findClosestHourlyWeather, time, hourlyWeather)
+  const currentWeatherBak = yield select(selectCurrentWeatherBak)
+  // adding current weather backup to hourly weather array
+  // so weather can be restored to current when slider comes back to start
+  const closestMatch = yield call(findClosestHourlyWeather, time, [
+    currentWeatherBak,
+    ...hourlyWeather
+  ])
 
   const {
     temperature,

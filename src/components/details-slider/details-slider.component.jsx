@@ -11,7 +11,7 @@ import WeatherCardsList from '../../components/weather-cards-list/weather-cards-
 import DetailedInfo from '../../components/detailed-info/detailed-info.component'
 
 const DetailsSlider = () => {
-  const [activeIndex, setActiveIndex] = useState(1) 
+  const [activeIndex, setActiveIndex] = useState(1)
 
   let staticActiveIndex = 1
 

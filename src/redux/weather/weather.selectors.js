@@ -70,3 +70,8 @@ export const selectCurrentWeatherIcon = createSelector(
   [selectCurrentWeather],
   currentWeather => (currentWeather ? currentWeather.icon : 'clear-day')
 )
+
+export const selectCurrentWeatherBak = createSelector(
+  [selectWeather],
+  weather => weather.currentlyBak
+)

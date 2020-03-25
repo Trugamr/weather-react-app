@@ -19,10 +19,13 @@ const INITIAL_STATE = {
 const weatherReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case WeatherActionTypes.GET_WEATHER_SUCCESS:
+      console.log(state)
       return {
         ...state,
         ...action.payload,
         currentSliderTime: action.payload.currently.time,
+        // creating this so state can be restored to current weather when slider comes back to start
+        currentlyBak: action.payload.currently,
         error: undefined
       }
     case WeatherActionTypes.GET_WEATHER_FAILURE:
