@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
+import { withRouter, useLocation } from 'react-router-dom'
 import { createStructuredSelector } from 'reselect'
 
 import { SearchFieldForm, SearchInput } from './search-field.styles'
@@ -7,20 +8,38 @@ import { SearchFieldForm, SearchInput } from './search-field.styles'
 import { getWeatherStart } from '../../redux/weather/weather.actions'
 import { selectPlaceName } from '../../redux/weather/weather.selectors'
 
-const SearchField = ({ searchValue = '', getWeatherStart, placeName }) => {
-  const [query, setQuery] = useState(searchValue)
+const SearchField = ({
+  searchValue = '',
+  placeName,
+  getWeatherStart,
+  history,
+  match: { url = '/' }
+}) => {
+  const [search, setSearch] = useState(searchValue)
+  const queryParams = new URLSearchParams(useLocation().search)
 
+  // update search input value to placeName
   useEffect(() => {
-    if (placeName) setQuery(placeName.split(',')[0])
+    if (placeName) setSearch(placeName.split(',')[0])
   }, [placeName])
+
+  // get weather on query parameter change
+  useEffect(() => {
+    const searchParam = queryParams.get('s')
+    if (searchParam) {
+      getWeatherStart(searchParam)
+    } else {
+      history.push('/')
+    }
+  }, [queryParams])
 
   const handleSubmit = event => {
     event.preventDefault()
-    getWeatherStart(query)
+    history.push(`${url}?s=${search}`)
   }
 
   const handleChange = event => {
-    setQuery(event.target.value)
+    setSearch(event.target.value)
   }
 
   return (
@@ -29,7 +48,7 @@ const SearchField = ({ searchValue = '', getWeatherStart, placeName }) => {
         type="text"
         name="query"
         placeholder="Search"
-        value={query}
+        value={search}
         onChange={handleChange}
       />
     </SearchFieldForm>
@@ -41,7 +60,9 @@ const mapStateToProps = createStructuredSelector({
 })
 
 const mapDispatchToProps = dispatch => ({
-  getWeatherStart: query => dispatch(getWeatherStart(query))
+  getWeatherStart: search => dispatch(getWeatherStart(search))
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(SearchField)
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(SearchField)
+)

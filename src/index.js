@@ -4,6 +4,8 @@ import { Provider } from 'react-redux'
 import { PersistGate } from 'redux-persist/integration/react'
 import CustomThemeProvider from './components/custom-theme-provider/custom-theme-provider'
 
+import { HashRouter as Router } from 'react-router-dom'
+
 import './index.scss'
 import App from './App'
 import * as serviceWorker from './serviceWorker'
@@ -14,7 +16,9 @@ ReactDOM.render(
   <Provider store={store}>
     <PersistGate persistor={persistor}>
       <CustomThemeProvider>
-        <App />
+        <Router basename="/">
+          <App />
+        </Router>
       </CustomThemeProvider>
     </PersistGate>
   </Provider>,

@@ -3,7 +3,10 @@ import { createStructuredSelector } from 'reselect'
 import { connect } from 'react-redux'
 import './App.scss'
 
+import { Route, Switch } from 'react-router-dom'
+
 import WeatherPage from './pages/weather/weather.component'
+import HomePage from './pages/home/home.component'
 
 import { getWeatherStart } from './redux/weather/weather.actions'
 import { selectLastSearch } from './redux/weather/weather.selectors'
@@ -17,7 +20,10 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <WeatherPage />
+        <Switch>
+          <Route exact path="/weather" component={WeatherPage} />
+          <Route path="*" component={HomePage} />
+        </Switch>
       </div>
     )
   }
