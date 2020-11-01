@@ -1,0 +1,32 @@
+{
+  "files": {
+    "main.css": "/mausam/static/css/main.6c7cb164.chunk.css",
+    "main.js": "/mausam/static/js/main.ccff9c76.chunk.js",
+    "main.js.map": "/mausam/static/js/main.ccff9c76.chunk.js.map",
+    "runtime-main.js": "/mausam/static/js/runtime-main.769ae6ee.js",
+    "runtime-main.js.map": "/mausam/static/js/runtime-main.769ae6ee.js.map",
+    "static/js/2.c3cf4c65.chunk.js": "/mausam/static/js/2.c3cf4c65.chunk.js",
+    "static/js/2.c3cf4c65.chunk.js.map": "/mausam/static/js/2.c3cf4c65.chunk.js.map",
+    "index.html": "/mausam/index.html",
+    "precache-manifest.79ac7f6f789d5e18c6dcbf9eb6049cc9.js": "/mausam/precache-manifest.79ac7f6f789d5e18c6dcbf9eb6049cc9.js",
+    "service-worker.js": "/mausam/service-worker.js",
+    "static/css/main.6c7cb164.chunk.css.map": "/mausam/static/css/main.6c7cb164.chunk.css.map",
+    "static/js/2.c3cf4c65.chunk.js.LICENSE.txt": "/mausam/static/js/2.c3cf4c65.chunk.js.LICENSE.txt",
+    "static/media/clear-day.svg": "/mausam/static/media/clear-day.adbe34b4.svg",
+    "static/media/clear-night.svg": "/mausam/static/media/clear-night.9c2a0d8d.svg",
+    "static/media/cloudy.svg": "/mausam/static/media/cloudy.8d0ca550.svg",
+    "static/media/fog.svg": "/mausam/static/media/fog.b742a618.svg",
+    "static/media/partly-cloudy-day.svg": "/mausam/static/media/partly-cloudy-day.0fd7cfa7.svg",
+    "static/media/partly-cloudy-night.svg": "/mausam/static/media/partly-cloudy-night.a871d3be.svg",
+    "static/media/rain.svg": "/mausam/static/media/rain.2ba6cde7.svg",
+    "static/media/sleet.svg": "/mausam/static/media/sleet.f9ec606e.svg",
+    "static/media/snow.svg": "/mausam/static/media/snow.c2418c49.svg",
+    "static/media/wind.svg": "/mausam/static/media/wind.332c9448.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.769ae6ee.js",
+    "static/js/2.c3cf4c65.chunk.js",
+    "static/css/main.6c7cb164.chunk.css",
+    "static/js/main.ccff9c76.chunk.js"
+  ]
+}
